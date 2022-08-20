@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="text-align: center; color: blue">
+      x-x-x-x-x---- Start Assignment -----x-x-x-x
+    </h1>
+    <br />
+    <br />
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 1:</span> Write a JavaScript function that
+      reverse a number.
+    </h3>
+    <button onclick="q1()">Question 1</button>
+    <hr />
+    <br />
+
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 2:</span> Write a JavaScript function that
+      checks whether a passed string is palindrome or not?
+    </h3>
+    <button onclick="q2()">Question 2</button>
+    <hr />
+    <br />
+
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 3:</span> Write a JavaScript function that
+      generates all combinations of a string.
+    </h3>
+    <button onclick="q3()">Question 3</button>
+    <hr />
+    <br />
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 4:</span> Write a JavaScript function that
+      returns a passed string with letters in alphabetical order
+    </h3>
+    <button onclick="q4()">Question 4</button>
+    <hr />
+    <br />
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 5:</span> Write a JavaScript function that
+      accepts a string as a parameter and converts the first letter of each word
+      of the string in upper case.
+    </h3>
+    <button onclick="q5()">Question 5</button>
+    <hr />
+    <br />
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 6:</span> Write a JavaScript function that
+      accepts a string as a parameter and find the longest word within the
+      string.
+    </h3>
+    <button onclick="q6()">Question 6</button>
+    <hr />
+    <br />
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 7:</span> Write a JavaScript function that
+      accepts a string as a parameter and counts the number of vowels within the
+      string.
+    </h3>
+    <button onclick="q7()">Question 7</button>
+    <hr />
+    <br />
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 8:</span> Write a JavaScript function that
+      accepts a number as a parameter and check the number is prime or not.
+    </h3>
+    <button onclick="q8()">Question 8</button>
+    <hr />
+    <br />
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 9:</span>Write a JavaScript function which
+      accepts an argument and returns the type.
+    </h3>
+    <button onclick="q9()">Question 9</button>
+    <hr />
+    <br />
+    <hr />
+    <h3>
+      <span style="color: blue">Ques 10:</span> Write a JavaScript function
+      which will take an array of numbers stored and find the second lowest and
+      second greatest numbers, respectively.
+    </h3>
+    <button onclick="q10()">Question 10</button>
+    <hr />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 style="text-align: center; color: blue">
+      x-x-x-x-x---- Complete Assignment -----x-x-x-x
+    </h1>
+  </body>
+  <script>
+    function q1() {
+      var num = prompt("Please Enter Number");
+      var splitString = num.split("");
+      var reverseArray = splitString.reverse();
+      var joinArray = reverseArray.join("");
+      alert(joinArray);
+    }
+
+    function q2() {
+      var string = prompt("Please enter String");
+      const len = string.length;
+      var palin;
+      for (let i = 0; i < len / 2; i++) {
+        if (string[i] !== string[len - 1 - i]) {
+          palin = true;
+        }
+      }
+      if (palin == true) {
+        alert("It is not palindrome");
+      } else {
+        alert("It is a palindrome");
+      }
+    }
+
+    function q3() {
+      var str = prompt("Please Enter String");
+      var combinations = [];
+      for (let i = 0; i < str.length; i++) {
+        for (let j = i + 1; j < str.length + 1; j++) {
+          combinations.push(str.slice(i, j));
+        }
+      }
+      alert(combinations);
+    }
+
+    function q4() {
+      var alphabet = prompt("Please Enter Alphabats");
+      var arr = alphabet.split("");
+      res = arr.sort().join("");
+      alert(res);
+    }
+
+    function q5_parameter(string) {
+      var array1 = string.split(" ");
+      var newarray1 = [];
+
+      for (var x = 0; x < array1.length; x++) {
+        newarray1.push(array1[x].charAt(0).toUpperCase() + array1[x].slice(1));
+      }
+      alert(newarray1.join(" "));
+    }
+
+    function q5() {
+      var param = prompt("Please Enter value");
+      q5_parameter(param);
+    }
+
+    function q6() {
+      var long_word = prompt("Please Enter A sentence ");
+      var array1 = long_word.match(/\w[a-z]{0,}/gi);
+      var result = array1[0];
+
+      for (var x = 1; x < array1.length; x++) {
+        if (result.length < array1[x].length) {
+          result = array1[x];
+        }
+      }
+      alert(result);
+    }
+
+    function q7_param(str1) {
+      var vowel_list = "aeiouAEIOU";
+      var vcount = 0;
+
+      for (var x = 0; x < str1.length; x++) {
+        if (vowel_list.indexOf(str1[x]) !== -1) {
+          vcount += 1;
+        }
+      }
+      //   alert(vcount)
+      return vcount;
+    }
+
+    function q7() {
+      var vowel_check = prompt("Please Enter words");
+      alert(q7_param(vowel_check));
+    }
+
+    function q8_prime(n) {
+      if (n == 1) {
+        return "No Even Number";
+      } else if (n === 2) {
+        return "Even Number";
+      } else {
+        for (var x = 2; x < n; x++) {
+          if (n % x == 0) {
+            return "Even Number";
+          }
+        }
+        return "No Even Number";
+      }
+    }
+
+    function q8() {
+      var number = prompt("Please Enter A number.");
+      number = parseInt(number);
+      if (typeof number == "number") {
+        alert(q8_prime(number));
+      } else {
+        alert("Not a Number Enter correct number");
+      }
+    }
+
+    function q9_data_type(value) {
+      var dtypes = [Function, RegExp, Number, String, Boolean, Object],
+        x,
+        len;
+
+      if (typeof value === "object" || typeof value === "function") {
+        for (x = 0, len = dtypes.length; x < len; x++) {
+          if (value instanceof dtypes[x]) {
+            return dtypes[x];
+          }
+        }
+      }
+
+      return typeof value;
+    }
+
+    function q9() {
+      alert("30 is " + q9_data_type(30));
+      alert("Shafa Nasir is " + q9_data_type("Shafa Nasir"));
+      alert("false is a " + q9_data_type(false));
+    }
+
+    function q10_Second_Greatest_Lowest(arr_num) {
+      arr_num.sort(function (x, y) {
+        return x - y;
+      });
+      var uniqa = [arr_num[0]];
+      var result = [];
+
+      for (var j = 1; j < arr_num.length; j++) {
+        if (arr_num[j - 1] !== arr_num[j]) {
+          uniqa.push(arr_num[j]);
+        }
+      }
+      result.push(uniqa[1], uniqa[uniqa.length - 2]);
+      return result.join(",");
+    }
+
+    function q10() {
+      var array = [3, 4, 7, 6, 10];
+      alert("list of array is " + array);
+      alert(q10_Second_Greatest_Lowest(array));
+    }
+  </script>
+</html>
